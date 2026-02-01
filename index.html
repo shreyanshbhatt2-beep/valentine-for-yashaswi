@@ -24,9 +24,7 @@ body {
     padding: 30px;
     border-radius: 20px;
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     max-width: 350px;
-    z-index: 2;
 }
 
 button {
@@ -41,15 +39,27 @@ button {
 .yes { background: #ff4d6d; color: white; }
 .no { background: white; color: #ff4d6d; }
 
-.teddy {
+.cat {
     position: absolute;
-    font-size: 28px;
+    font-size: 30px;
     animation: fall linear forwards;
 }
 
 @keyframes fall {
     from { transform: translateY(-10vh); opacity: 1; }
     to { transform: translateY(110vh); opacity: 0; }
+}
+
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: floatUp 4s linear infinite;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
 }
 </style>
 </head>
@@ -69,12 +79,12 @@ const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 
 noBtn.addEventListener("click", () => {
-    const teddy = document.createElement("div");
-    teddy.className = "teddy";
-    teddy.innerHTML = "🧸💔";
-    teddy.style.left = Math.random() * 100 + "vw";
-    teddy.style.animationDuration = (Math.random() * 3 + 2) + "s";
-    document.body.appendChild(teddy);
+    const cat = document.createElement("div");
+    cat.className = "cat";
+    cat.innerHTML = "😿💔";
+    cat.style.left = Math.random() * 100 + "vw";
+    cat.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(cat);
 });
 
 yesBtn.addEventListener("click", () => {
@@ -85,25 +95,33 @@ yesBtn.addEventListener("click", () => {
             justify-content:center;
             align-items:center;
             height:100vh;
-            background:linear-gradient(135deg,#1e3c72,#2a5298);
-            color:white;
+            background:linear-gradient(135deg,#ff758c,#ff7eb3);
             text-align:center;
             padding:20px;
+            color:white;
+            overflow:hidden;
         ">
-            <h1>She Said YES!!! 💖</h1>
-            <p>Yashaswi just made this the happiest moment ever 🥹</p>
-            <img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" 
-                 style="width:220px;border-radius:12px;margin-top:15px;">
-            <p style="margin-top:20px;">Valentine's Day is officially ours 🦇🌹</p>
+            <h1>Love you the most JAANA 💖</h1>
+            <img src="YOUR_IMAGE_LINK_HERE" style="width:250px;border-radius:15px;margin:20px 0;">
+            <button onclick="playSong()" style="padding:10px 20px;border:none;border-radius:20px;background:white;color:#ff4d6d;">
+                Play Our Song 🎵
+            </button>
         </div>
     `;
 
-    const music = document.createElement("iframe");
-    music.src = "https://www.youtube.com/embed/KEI4qSrkPAs?start=114&end=133&autoplay=1";
-    music.allow = "autoplay";
-    music.style.display = "none";
-    document.body.appendChild(music);
+    for(let i=0;i<30;i++){
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random()*100 + "vw";
+        heart.style.animationDuration = (Math.random()*3+2)+"s";
+        document.body.appendChild(heart);
+    }
 });
+
+function playSong(){
+    window.open("https://youtu.be/KEI4qSrkPAs?t=114", "_blank");
+}
 </script>
 
 </body>
