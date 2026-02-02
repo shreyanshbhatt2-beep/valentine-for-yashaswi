@@ -39,9 +39,9 @@ button {
 .yes { background: #ff4d6d; color: white; }
 .no { background: white; color: #ff4d6d; }
 
-.cat {
+.fall {
     position: absolute;
-    font-size: 30px;
+    font-size: 28px;
     animation: fall linear forwards;
 }
 
@@ -53,7 +53,7 @@ button {
 .heart {
     position: absolute;
     color: #ff4d6d;
-    font-size: 20px;
+    font-size: 22px;
     animation: floatUp 4s linear infinite;
 }
 
@@ -67,9 +67,9 @@ button {
 <body>
 
 <div class="card">
-    <h2>Kaise ho Yashuu Ji ❤️</h2>
+    <h2>Kaise ho Yashuu ji ❤️</h2>
     <p>You make my world brighter every day.</p>
-    <h3>I need you to know that love shouldn’t be limited to a date on the calendar because I choose you every day. But will you still be my Valentine? 🌹</h3>
+    <h3>I need you to know that Love isn’t meant for just one day… it’s something I feel for you every single day. Still, can you still be my Valentine?  🌹</h3>
     <button class="yes" id="yesBtn">Yes 💖</button>
     <button class="no" id="noBtn">No 🙈</button>
 </div>
@@ -78,15 +78,19 @@ button {
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 
+// Sad cats on NO
 noBtn.addEventListener("click", () => {
-    const cat = document.createElement("div");
-    cat.className = "cat";
-    cat.innerHTML = "😿💔";
-    cat.style.left = Math.random() * 100 + "vw";
-    cat.style.animationDuration = (Math.random() * 3 + 2) + "s";
-    document.body.appendChild(cat);
+    for(let i=0;i<6;i++){
+        const cat = document.createElement("div");
+        cat.className = "fall";
+        cat.innerHTML = "😿💔";
+        cat.style.left = Math.random() * 100 + "vw";
+        cat.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(cat);
+    }
 });
 
+// YES screen
 yesBtn.addEventListener("click", () => {
     document.body.innerHTML = `
         <div style="
@@ -102,14 +106,15 @@ yesBtn.addEventListener("click", () => {
             overflow:hidden;
         ">
             <h1>Love you the most JAANA 💖</h1>
-            <img src=https://i.postimg.cc/g09pgDm2/IMG-5325.jpg style="width:250px;border-radius:15px;margin:20px 0;">
-            <button onclick="playSong()" style="padding:10px 20px;border:none;border-radius:20px;background:white;color:#ff4d6d;">
+            <img src=https://i.postimg.cc/g09pgDm2/IMG-5325.jpg style="width:260px;border-radius:15px;margin:20px 0;">
+            <button onclick="playSong()" style="padding:12px 25px;border:none;border-radius:25px;background:white;color:#ff4d6d;font-size:16px;">
                 Play Our Song 🎵
             </button>
         </div>
     `;
 
-    for(let i=0;i<30;i++){
+    // Floating hearts
+    for(let i=0;i<40;i++){
         const heart = document.createElement("div");
         heart.className = "heart";
         heart.innerHTML = "❤";
@@ -119,10 +124,9 @@ yesBtn.addEventListener("click", () => {
     }
 });
 
+// Opens Die For You at 1:25
 function playSong(){
-    window.open("https://www.youtube.com/watch?v=2AH5l-vrY9Q&t=85s", "_blank");
-}
-    
+    window.open("https://www.youtube.com/watch?v=4NRXx6U8ABQ&t=85s", "_blank");
 }
 </script>
 
